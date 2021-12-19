@@ -1,7 +1,6 @@
-import './App.css'
-import UploadContextProvider from './components/UploadContext'
-import UploadDialogue from './components/UploadDialogue'
-import Diagnosis from './components/Diagnosis'
+import UploadContextProvider from './components/wrappers/UploadContext'
+import UploadDialogue from './components/features/upload/UploadDialogue'
+import Diagnosis from './components/features/diagnosis/Diagnosis'
 
 function App() {
     return (

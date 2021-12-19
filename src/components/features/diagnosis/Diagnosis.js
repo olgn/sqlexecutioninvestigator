@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react'
-import { UploadContext } from './UploadContext'
-import { getExpensiveOperations } from '../functions/diagnosis'
+import { UploadContext } from '../../wrappers/UploadContext'
+import { getExpensiveOperations } from '../../../functions/diagnosis'
 
 const Diagnosis = () => {
     const { uploadedFile } = useContext(UploadContext)
