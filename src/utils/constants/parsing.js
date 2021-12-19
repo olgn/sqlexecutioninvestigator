@@ -8,7 +8,8 @@ const defaults = {
     ],
     statements: ['StmtSimple'],
     specialStatementProperties: ['StatementText', 'tableData'],
-    operationExpenseAttribute: 'EstimateCPU'
+    operationExpenseAttribute: 'EstimateCPU',
+    statementExpenseAttribute: 'StatementSubTreeCost'
 }
 
 export { defaults }
