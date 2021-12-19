@@ -43,7 +43,7 @@ const getStatementData = (doc) => {
                     }
                 }, {}),
             }
-        })
+        }).sort((a, b) => b[defaults.statementExpenseAttribute] - a[defaults.statementExpenseAttribute])
     } else {
         return []
     }
