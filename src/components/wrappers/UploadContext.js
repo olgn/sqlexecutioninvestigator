@@ -17,10 +17,12 @@ const UploadContextProvider = ({ children }) => {
     
     const onUploadSubmit = async (e) => {
         var wow = new DOMParser()
-        const file = e.target[0].files[0]
-        var text = await file.text()
-        var xml = wow.parseFromString(text, 'text/xml')
-        setUploadedFile(xml)
+        if (e && e.target && e.target[0] && e.target[0].files[0]) {
+            const file = e.target[0].files[0]
+            var text = await file.text()
+            var xml = wow.parseFromString(text, 'text/xml')
+            setUploadedFile(xml)
+        }
     }
 
     const clearFileName = useCallback(() => {

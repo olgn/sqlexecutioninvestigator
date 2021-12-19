@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { defaults } from '../../../utils/constants/parsing'
+import { defaults } from '../../../../utils/constants/parsing'
+import CodeBlock from '../../../elem/layout/CodeBlock'
 
 const StatementRow = ({ statement, idx, onClick }) => {
     const statementText = statement.StatementText
@@ -75,9 +76,7 @@ const StatementRow = ({ statement, idx, onClick }) => {
                         </div>
                     </div>
                 </div>
-                <pre className={`code ${statementExpanded ? '' : 'is-hidden'}`}>
-                    {statementText}
-                </pre>
+                <CodeBlock extraClass={statementExpanded ? '' : 'is-hidden'} content={statementText}/>
             </div>
         </>
     )

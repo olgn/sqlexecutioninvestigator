@@ -14,7 +14,7 @@ const Table = ({ columns, data, defaultSortColumn, defaultSortDirection }) => {
                   },
               ]
             : []
-    )
+    , [defaultSortColumn, defaultSortDirection])
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable(
@@ -22,7 +22,7 @@ const Table = ({ columns, data, defaultSortColumn, defaultSortDirection }) => {
                 columns: c,
                 data: d,
                 initialState: {
-                    initialSortBy,
+                    sortBy: initialSortBy,
                 },
             },
             useSortBy
@@ -38,9 +38,19 @@ const Table = ({ columns, data, defaultSortColumn, defaultSortDirection }) => {
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map((column) => (
-                                <th {...column.getHeaderProps()}>
-                                    {column.render('Header')}
-                                </th>
+                                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                    <div className="is-flex">
+                                        {column.render('Header')}
+                                        {/* Add a sort direction indicator */}
+                                        <span className="ml-2">
+                                        {column.isSorted
+                                            ? column.isSortedDesc
+                                            ? ' 🔽'
+                                            : ' 🔼'
+                                            : ''}
+                                        </span>
+                                    </div>
+                              </th>
                             ))}
                         </tr>
                     ))}
