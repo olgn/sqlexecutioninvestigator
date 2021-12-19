@@ -1,60 +1,26 @@
-import React, { useContext, useState, useCallback } from 'react'
+import React, { useContext } from 'react'
 import { UploadContext } from '../../wrappers/UploadContext'
-import { defaults } from '../../../utils/constants/files'
 
 const UploadDialogue = () => {
-    const { onUploadSubmit, uploadedFile, setUploadedFile } =
+    const { onUploadSubmit, uploadedFile, updateFileName, fileName } =
         useContext(UploadContext)
 
-    const [fileName, setFileName] = useState(defaults.fileName)
-
-    const updateFileName = useCallback(
-        (e) => {
-            const f = e.target.files[0].name
-            return setFileName(f)
-        },
-        [setFileName]
-    )
-
-    const clearFileName = useCallback(() => {
-        setFileName(defaults.fileName)
-        setUploadedFile(null)
-    }, [setFileName, setUploadedFile])
+    if (!!uploadedFile) {
+        return null
+    }
 
     return (
-        <section className="section">
-            {uploadedFile ? (
-                <div className="container">
-                    <div className="level has-text-centered">
-                        <div className="level-item">
-                            <div>
-                                <p className="heading">
-                                    Showing diagnosis of execution plan: {` `}
-                                    <b>{fileName}</b>.
-                                </p>
-                                <p className="title">
-                                    <button
-                                        className="button is-link"
-                                        onClick={() => clearFileName()}
-                                    >
-                                        Choose a Different Execution Plan
-                                    </button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ) : (
-                <div className="container">
-                    <form
-                        className="form"
-                        onSubmit={(e) => {
-                            e.preventDefault()
-                            return onUploadSubmit(e)
-                        }}
-                    >
-                        <div className="field is-grouped is-fullwidth">
-                        <div className="control file is-fullwidth is-expanded">
+        <section className="section uploadSection">
+            <div className="container">
+                <form
+                    className="form"
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        return onUploadSubmit(e)
+                    }}
+                >
+                    <div className="field is-grouped is-fullwidth">
+                        <div className="control file is-link is-light is-medium is-fullwidth is-expanded">
                             <label className="file-label">
                                 <input
                                     onChange={(e) => updateFileName(e)}
@@ -75,18 +41,14 @@ const UploadDialogue = () => {
                                 </span>
                             </label>
                         </div>
-                            <div className="control">
-                                <button
-                                    className="button is-link"
-                                    istype="submit"
-                                >
-                                    Upload
-                                </button>
-                            </div>
+                        <div className="control">
+                            <button className="button is-link is-medium is-light" istype="submit">
+                                Upload
+                            </button>
                         </div>
-                    </form>
-                </div>
-            )}
+                    </div>
+                </form>
+            </div>
         </section>
     )
 }
