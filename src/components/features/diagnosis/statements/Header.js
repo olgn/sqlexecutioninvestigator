@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { UploadContext } from '../../../wrappers/UploadContext'
 
-export default () => {
+const Header = () => {
     const { fileName, clearFileName } = useContext(UploadContext)
     return (
         <div className="section p-0 pb-6">
@@ -37,3 +37,5 @@ export default () => {
         </div>
     )
 }
+
+export default Header

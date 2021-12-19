@@ -1,7 +1,7 @@
 import React from 'react'
 import Panel from '../../../elem/layout/Panel'
 
-export default ({ statementInfo }) => (
+const QueryInformation = ({ statementInfo }) => (
     <Panel title={'Query Information'}>
         <div className="container">
             <div className="level has-text-centered">
@@ -19,3 +19,5 @@ export default ({ statementInfo }) => (
         </div>
     </Panel>
 )
+
+export default QueryInformation

@@ -2,7 +2,7 @@ import React from 'react'
 import Panel from '../../../elem/layout/Panel'
 import StatementRow from './StatementRow'
 
-export default ({ statements, onClick }) => (
+const StatementList = ({ statements, onClick }) => (
     <Panel title="Query Statements">
         <div className="container max-fullwidth">
             {statements.map((statement, idx) => (
@@ -16,3 +16,5 @@ export default ({ statements, onClick }) => (
         </div>
     </Panel>
 )
+
+export default StatementList

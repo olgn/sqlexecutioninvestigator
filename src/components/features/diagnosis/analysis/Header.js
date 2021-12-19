@@ -1,7 +1,7 @@
 import React from 'react'
 import Back from '../../../elem/navigation/Back'
 
-export default ({ back }) => (
+const Header = ({ back }) => (
     <div className="section p-0 pb-6">
         <div className="level is-small">
             <div className="level-left">
@@ -24,3 +24,5 @@ export default ({ back }) => (
         </div>
     </div>
 )
+
+export default Header

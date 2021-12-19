@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ onClick, text }) => (
+const Back = ({ onClick, text }) => (
     <button
         className="button is-link is-light is-medium"
         onClick={() => onClick()}
@@ -9,3 +9,5 @@ export default ({ onClick, text }) => (
         {text}
     </button>
 )
+
+export default Back

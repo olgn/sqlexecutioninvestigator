@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import StatementList from './StatementList'
 
-export default ({ statementData, rowClick }) =>  (
+const StatementPage = ({ statementData, rowClick }) =>  (
     <section className="section analysisWrapper">
         <div className="container analysis">
             <Header />
@@ -10,3 +10,5 @@ export default ({ statementData, rowClick }) =>  (
         </div>
     </section>
 )
+
+export default StatementPage

@@ -1,7 +1,7 @@
 import React from 'react'
 import hljs from 'highlight.js'
 
-export default ({ content, language, extraClass }) => {
+const CodeBlock = ({ content, language, extraClass }) => {
     const highlighted = language
         ? hljs.highlight(content, {language})
         : hljs.highlightAuto(content)
@@ -15,3 +15,5 @@ export default ({ content, language, extraClass }) => {
         </pre>
     )
 }
+
+export default CodeBlock
