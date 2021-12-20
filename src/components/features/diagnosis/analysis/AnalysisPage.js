@@ -3,7 +3,7 @@ import React from 'react'
 import { defaults } from '../../../../utils/constants/parsing'
 import Header from './Header'
 import QueryInformation from './QueryInformation'
-import QueryStatisticsTable from './QueryStatisticsTable'
+import OperationStatisticsTable from './OperationStatisticsTable'
 import QueryStatement from './QueryStatement'
 
 const AnalysisPage = ({ back, statement }) => {
@@ -21,7 +21,7 @@ const AnalysisPage = ({ back, statement }) => {
                 <Header back={back} />
                 <QueryStatement statementText={statementText} />
                 <QueryInformation statementInfo={highLevelStatementInfo} />
-                <QueryStatisticsTable tableData={tableData}/>
+                <OperationStatisticsTable tableData={tableData}/>
             </div>
         </section>
     )
