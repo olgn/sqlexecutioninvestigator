@@ -29,7 +29,7 @@ const Table = ({ columns, data, defaultSortColumn, defaultSortDirection }) => {
         )
 
     return (
-        <div className="table-container">
+        <div className="table-container table-height">
             <table
                 {...getTableProps()}
                 className="table is-narrow is-striped is-hoverable is-fullwidth"

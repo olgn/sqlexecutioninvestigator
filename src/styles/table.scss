@@ -1,3 +1,8 @@
 .thead {
     display: flex;
 }
+
+.table-height {
+    max-height: 500px;
+    overflow-y: scroll;
+}
