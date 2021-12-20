@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+### What
+This application allows the user to upload and analyze an SQL execution plan as output to xml by SQL Server.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Why
+Motivation for this project comes from the fact that, in many cases, we are looking for operation nodes with specific properties that set them apart from the others.
+One common example would be that a sysop wants to find the node that has the highest CPU cost. In a large, multi-statement query, these execution plans can become
+cumbersome to navigate - they are big, they have many nodes, and the navigation interface is not exactly user-friendly for this use-case.
 
-## Available Scripts
+### Solve It For Me
+A solution to this is to simply output the execution plan as xml from the sql server instance (click the ... icon in the top right of the execution plan)
+and upload it to this application. The following things happen when you upload an execution plan:
+* The execution plan is split into each individual statement
+* Each statement is displayed, sorted by Relative Sub Tree Cost Descending, and some metadata about that query is available for viewing.
+* Clicking the "Preview Query" button on each statement will display the underlying sql statement, in an easy-to-read format
+* Clicking the statement row itself will take the user to an Analysis Page, where various types of analysis are displayed for the selected sql statement
+ * Query Statement - simply displays the SQL statement that is being analyzed in an easy-to-read format
+ * Query Information - contains all attributes of the SQL Statement from the execution plan xml node
+ * Operation Statistics - contains a sortable table of children nodes with tag name "RelOp" of the statement that is being analyzed. All attributes of the RelOp tags are displayed
 
-In the project directory, you can run:
+### Okay, Let's Do It
+Created with Create-React-App. This app requires all the things that Create-React-App requires to run locally (node >= 14, yarn / npm)
 
-### `npm start`
+To get started, simply pull this repo and then run locally:
+`git clone https://github.com/olgn/sqlexecutioninvestigator.git`
+`cd sqlexecutioninvestigator`
+`yarn`
+`yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You should see the application running locally at `localhost:3000`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Upload an SQL execution plan (in `xml`) and enjoy!
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### U Shoulda Done This
+This is just a couple-day pet project that solves the majority of the problems that I personally have when trying to diagnose big execution plans. You want something else? PR's welcome :upside-down-face:
