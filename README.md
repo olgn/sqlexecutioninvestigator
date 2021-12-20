@@ -21,9 +21,13 @@ and upload it to this application. The following things happen when you upload a
 Created with Create-React-App. This app requires all the things that Create-React-App requires to run locally (node >= 14, yarn / npm)
 
 To get started, simply pull this repo and then run locally:
+
 `git clone https://github.com/olgn/sqlexecutioninvestigator.git`
+
 `cd sqlexecutioninvestigator`
+
 `yarn`
+
 `yarn start`
 
 You should see the application running locally at `localhost:3000`.
